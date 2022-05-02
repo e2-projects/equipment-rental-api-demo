@@ -29,7 +29,6 @@ public class HttpSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         var manager = new InMemoryUserDetailsManager();
-        manager.createUser(new User(properties.username(), properties.password(), getGrantedAuthorities()));
         manager.createUser(
                 User.builder()
                         .username(properties.username())

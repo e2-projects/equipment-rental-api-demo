@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="Edvardas Jusius">
+        <comment>Create price table</comment>
+
+        <createSequence sequenceName="seq_price_id" incrementBy="1" startValue="1"/>
+
+        <createTable tableName="price">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="pk_price"/>
+            </column>
+            <column name="commitment_months" type="TINYINT"/>
+            <column name="value" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addDefaultValue columnDataType="bigint"
+                         columnName="id"
+                         defaultValueSequenceNext="seq_price_id"
+                         tableName="price"/>
+    </changeSet>
+
+    <changeSet id="2" author="Edvardas Jusius">
+        <comment>Create product table</comment>
+
+        <createSequence sequenceName="seq_product_id" incrementBy="1" startValue="1"/>
+
+        <createTable tableName="product">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="pk_product"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_rentable" type="boolean" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="price_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_price_to_product" references="price(id)"/>
+            </column>
+        </createTable>
+
+        <addDefaultValue columnDataType="bigint" columnName="id" defaultValueSequenceNext="seq_product_id" tableName="product"/>
+    </changeSet>
+
+</databaseChangeLog>
