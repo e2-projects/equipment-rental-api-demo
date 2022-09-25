@@ -1,9 +1,9 @@
-package lt.e2projects.rental.api.configurations.api;
+package lt.e2projects.rental.api.configurations;
 
 import com.hazelcast.config.*;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import lt.e2projects.rental.api.configurations.api.properties.CacheProperties;
+import lt.e2projects.rental.api.configurations.properties.CacheProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;

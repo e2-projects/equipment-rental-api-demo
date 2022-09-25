@@ -1,4 +1,4 @@
-package lt.e2projects.rental.api.configurations.api.properties;
+package lt.e2projects.rental.api.configurations.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

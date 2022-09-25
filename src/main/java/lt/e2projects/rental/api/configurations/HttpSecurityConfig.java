@@ -1,6 +1,6 @@
-package lt.e2projects.rental.api.configurations.api;
+package lt.e2projects.rental.api.configurations;
 
-import lt.e2projects.rental.api.configurations.api.properties.SecurityProperties;
+import lt.e2projects.rental.api.configurations.properties.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,7 +29,7 @@ public class HttpSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         var manager = new InMemoryUserDetailsManager();
-        manager.createUser(new User(properties.username(), properties.password(), getGrantedAuthorities()));
+        // manager.createUser(new User(properties.username(), properties.password(), getGrantedAuthorities()));
         manager.createUser(
                 User.builder()
                         .username(properties.username())

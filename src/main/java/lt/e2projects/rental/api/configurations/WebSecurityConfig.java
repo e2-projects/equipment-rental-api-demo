@@ -1,6 +1,6 @@
-package lt.e2projects.rental.api.configurations.api;
+package lt.e2projects.rental.api.configurations;
 
-import lt.e2projects.rental.api.configurations.api.properties.SecurityProperties;
+import lt.e2projects.rental.api.configurations.properties.SecurityProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;

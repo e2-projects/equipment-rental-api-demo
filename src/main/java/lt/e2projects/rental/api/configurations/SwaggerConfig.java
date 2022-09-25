@@ -1,7 +1,7 @@
-package lt.e2projects.rental.api.configurations.api;
+package lt.e2projects.rental.api.configurations;
 
 import io.swagger.annotations.ApiOperation;
-import lt.e2projects.rental.api.configurations.api.properties.SwaggerProperties;
+import lt.e2projects.rental.api.configurations.properties.SwaggerProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

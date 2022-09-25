@@ -3,7 +3,7 @@ spring:
     name: equipment-rental-api
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/master.xml
+    change-log: classpath:db/master.xml
     default-schema: rental_equipment
     driver-class-name: org.h2.Driver
     user: sa
@@ -21,7 +21,6 @@ spring:
     type: HAZELCAST
     cache-names:
       - products
-      - prices
       - productInfo
 
 server:
@@ -29,10 +28,9 @@ server:
   tomcat:
     threads:
       max: 2
-  max-http-header-size:
-    48KB
+  max-http-header-size: 48KB
   servlet:
-    context-path: /rental/api/v1
+    context-path: /rental/api
 
 api:
   cache:

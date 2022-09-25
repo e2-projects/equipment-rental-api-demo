@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="1" author="Dum6o">
+        <comment>Create product table</comment>
+
+        <createSequence sequenceName="seq_product_id" incrementBy="1" startValue="1"/>
+
+        <createTable tableName="product">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="pk_product"/>
+            </column>
+            <column name="title" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rentable" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="initial_charge" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rental_price" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rental_price_for_quarter" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rental_price_for_half_year" type="float">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addDefaultValue columnDataType="bigint" columnName="id" defaultValueSequenceNext="seq_product_id" tableName="product"/>
+    </changeSet>
+
+</databaseChangeLog>
